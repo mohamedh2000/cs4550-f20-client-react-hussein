@@ -1,14 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
-import App from './App';
-import CourseListComponent from './components/CourseListComponent'
+import CourseManager from './containers/CourseManager.js'
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
-    <CourseListComponent />
+    <CourseManager />
   </React.StrictMode>,
   document.getElementById('root')
 );
