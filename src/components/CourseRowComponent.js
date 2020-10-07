@@ -1,12 +1,8 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTrash } from '@fortawesome/free-solid-svg-icons'
-import { faUserEdit} from '@fortawesome/free-solid-svg-icons'
-import { faFileWord } from '@fortawesome/free-solid-svg-icons'
-import { faCheck } from '@fortawesome/free-solid-svg-icons'
+import { faTrash, faUserEdit, faFileWord, faCheck } from '@fortawesome/free-solid-svg-icons'
 import $ from 'jquery'
-import {Link, Route} from 'react-router-dom'
-
+import { Link } from 'react-router-dom'
 
 class CourseRowComponent extends React.Component {
     state = {

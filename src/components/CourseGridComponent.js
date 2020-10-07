@@ -1,10 +1,6 @@
 import React from 'react';
-import $ from 'jquery'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCaretDown } from '@fortawesome/free-solid-svg-icons'
-import { faListUl } from '@fortawesome/free-solid-svg-icons'
-import { faFolder } from '@fortawesome/free-solid-svg-icons'
-import { faSortAlphaDown} from '@fortawesome/free-solid-svg-icons'
+import { faCaretDown, faListUl, faFolder, faSortAlphaDown } from '@fortawesome/free-solid-svg-icons'
 import CourseCardComponent from "./CourseCardComponent.js"
 
 class CourseGridComponent extends React.Component {

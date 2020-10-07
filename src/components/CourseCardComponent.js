@@ -1,8 +1,8 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEllipsisV } from '@fortawesome/free-solid-svg-icons'
-import { faFileWord } from '@fortawesome/free-solid-svg-icons'
-import $ from 'jquery'
+import { faEllipsisV, faFileWord } from '@fortawesome/free-solid-svg-icons'
+import { Link } from 'react-router-dom'
+
 
 class CourseCardComponent extends React.Component {
 
@@ -13,7 +13,9 @@ class CourseCardComponent extends React.Component {
                    src="https://i.pinimg.com/736x/2f/20/96/2f209625fa1dccfe67de62ee3fd6ac94--graphic-design-posters-graphic-art.jpg"
                    alt="Card image cap"/>
               <div className="card-body">
-                <h5 className="card-title">{this.props.course.title}</h5>
+                <Link to={`/CourseEdit/${this.props.course._id}`}>
+                    <h5 className="card-title">{this.props.course.title}</h5>
+                </Link>
               </div>
               <div class="card-footer bg-transparent border-success">
                 <FontAwesomeIcon style={{marginRight:"5px"}} icon={faFileWord} />
