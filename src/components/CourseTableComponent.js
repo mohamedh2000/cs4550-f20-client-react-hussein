@@ -18,7 +18,9 @@ class CourseTableComponent extends React.Component {
                                         <FontAwesomeIcon icon={faTh} />
                                     </button>
                                     <button className="btn">
-                                        <FontAwesomeIcon style={{marginLeft:"10px"}} icon={faSortAlphaDown} />
+                                        <FontAwesomeIcon
+                                            style={{marginLeft:"10px"}}
+                                            icon={faSortAlphaDown} />
                                     </button>
                                 </th>
                             </tr>

@@ -79,29 +79,38 @@ class CourseManager extends React.Component {
                 <div className="container" style={{display: "inline"}}>
                     <button className="btn"> <FontAwesomeIcon
                         style={{width:"30px", height:"30px"}} icon={faBars}/> </button>
-                    <label for="course_input_name"> <b style={{fontSize:"30px"}}> CourseEditor </b> </label>
+                    <label for="course_input_name">
+                        <b style={{fontSize:"30px"}}> CourseEditor </b>
+                    </label>
                     <input id="course_input_name" style={{marginLeft: "50px", marginRight: "50px",
                         display:"inline-block", width:"300px"}} className="form-control fields"
                         placeholder="New Course"/>
                     <button className="btn fields"
-                        onClick={() => this.createCourse({
-                            title : $("#course_input_name").val(),
-                            owner: 'Me',
-                            last_modified: new Date(1900 + new Date().getYear(),
-                                new Date().getMonth(),new Date().getDate()).toUTCString()
+                        onClick={() =>
+                            this.createCourse({
+                                title : $("#course_input_name").val(),
+                                owner: 'Me',
+                                last_modified: new Date(1900 + new Date().getYear(),
+                                    new Date().getMonth(),new Date().getDate()).toUTCString()
                             })
-                    }>
+                        }>
                         <h1> <FontAwesomeIcon icon={faPlusSquare} /> </h1>
                     </button>
                 </div>
 
                 {
                     (!this.state.grid ?
-                        <CourseTableComponent switchView={this.switchView} updateCourse={this.updateCourse}
-                            deleteCourse={this.deleteCourse} courses={this.state.courses}/>
-                            :
-                        <CourseGridComponent switchView={this.switchView} updateCourse={this.updateCourse}
-                            deleteCourse={this.deleteCourse} courses={this.state.courses}/>
+                        <CourseTableComponent
+                            switchView={this.switchView}
+                            updateCourse={this.updateCourse}
+                            deleteCourse={this.deleteCourse}
+                            courses={this.state.courses}/>
+                        :
+                        <CourseGridComponent
+                            switchView={this.switchView}
+                            updateCourse={this.updateCourse}
+                            deleteCourse={this.deleteCourse}
+                            courses={this.state.courses}/>
                     )
                 }
             </div>

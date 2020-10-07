@@ -14,7 +14,8 @@ class CourseRowComponent extends React.Component {
                 <tr>
                     {
                         (this.state.editing ?
-                            <input id="updateTitle" style={{width:"300px"}} className="form-control fields"/>
+                            <input id="updateTitle" style={{width:"300px"}}
+                                className="form-control fields"/>
                         : <td id="changeTitle">
                             <Link to={`/CourseEdit/${this.props.course._id}`}>
                                 <FontAwesomeIcon icon={faFileWord}/>

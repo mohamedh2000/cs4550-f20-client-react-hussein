@@ -27,7 +27,7 @@ class CourseGridComponent extends React.Component {
                 </div>
             </div>
 
-            <div className="row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-6">
+            <div className="cols-sm-2 cols-md-3 cols-lg-4 cols-xl-6">
                 {
                     this.props.courses.map((course) =>
                         <CourseCardComponent
@@ -36,7 +36,6 @@ class CourseGridComponent extends React.Component {
                             course={course} />
                     )
                 }
-
             </div>
         </div>
 
