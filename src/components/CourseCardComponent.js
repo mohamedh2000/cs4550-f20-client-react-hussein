@@ -13,12 +13,12 @@ class CourseCardComponent extends React.Component {
 
     render() {
         return (
-            <div className="card" style={{margin:"20px", width: "18rem"}}>
+        <div className=" col-sm-2 col-md-3 col-lg-4 col-xl-6">
+            <div className="card " style={{margin:"20px", width: "18rem"}}>
               <img class="card-img-top"
                    src="https://i.pinimg.com/736x/2f/20/96/2f209625fa1dccfe67de62ee3fd6ac94--graphic-design-posters-graphic-art.jpg"
                    alt="Card image cap"/>
               <div className="card-body">
-
                     {(this.state.editing ?
                         <input id="updateTitle" className="form-control"/>
                         :
@@ -26,7 +26,6 @@ class CourseCardComponent extends React.Component {
                             <h5 className="card-title">{this.props.course.title}</h5>
                         </Link>
                     )}
-
               </div>
               <div class="card-footer bg-transparent border-success">
                 <FontAwesomeIcon style={{marginRight:"5px"}} icon={faFileWord} />
@@ -67,6 +66,7 @@ class CourseCardComponent extends React.Component {
                 </button>
               </div>
             </div>
+        </div>
         )
     }
 
