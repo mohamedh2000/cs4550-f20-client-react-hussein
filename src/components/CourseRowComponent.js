@@ -5,6 +5,8 @@ import { faUserEdit} from '@fortawesome/free-solid-svg-icons'
 import { faFileWord } from '@fortawesome/free-solid-svg-icons'
 import { faCheck } from '@fortawesome/free-solid-svg-icons'
 import $ from 'jquery'
+import {Link, Route} from 'react-router-dom'
+
 
 class CourseRowComponent extends React.Component {
     state = {
@@ -17,8 +19,12 @@ class CourseRowComponent extends React.Component {
                     {
                         (this.state.editing ?
                             <input id="updateTitle" style={{width:"300px"}} className="form-control fields"/>
-                        : <td id="changeTitle"><FontAwesomeIcon icon={faFileWord}/>
-                            {this.props.course.title}</td>
+                        : <td id="changeTitle">
+                            <Link to={`/CourseEdit/${this.props.course._id}`}>
+                                <FontAwesomeIcon icon={faFileWord}/>
+                                {this.props.course.title}
+                            </Link>
+                        </td>
                         )
                     }
                     <td>{this.props.course.owner}</td>

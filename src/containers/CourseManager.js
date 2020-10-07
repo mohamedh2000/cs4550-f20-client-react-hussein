@@ -16,6 +16,7 @@ import courseService from "../services/CourseService.js"
 import CourseRowComponent from "../components/CourseRowComponent.js"
 import CourseGridComponent from "../components/CourseGridComponent.js"
 import CourseTableComponent from "../components/CourseTableComponent.js"
+import {Router} from 'react-router-dom'
 
 class CourseManager extends React.Component {
     constructor(props) {
@@ -86,7 +87,7 @@ class CourseManager extends React.Component {
 
     render() {
         return (
-        <div className="container">
+            <div className="container">
                 <div className="container" style={{display: "inline"}}>
                     <button className="btn"> <FontAwesomeIcon
                         style={{width:"30px", height:"30px"}} icon={faBars}/> </button>
@@ -115,7 +116,6 @@ class CourseManager extends React.Component {
                             deleteCourse={this.deleteCourse} courses={this.state.courses}/>
                     )
                 }
-
             </div>
         )
     }
