@@ -13,8 +13,8 @@ class CourseCardComponent extends React.Component {
 
     render() {
         return (
-        <div className=" col-sm-2 col-md-3 col-lg-4 col-xl-6">
-            <div className="card " style={{margin:"20px", width: "18rem"}}>
+        <div>
+            <div className="card col-sm-2 col-md-3 col-lg-4 col-xl-6" style={{margin:"20px", width: "18rem"}}>
               <img class="card-img-top"
                    src="https://i.pinimg.com/736x/2f/20/96/2f209625fa1dccfe67de62ee3fd6ac94--graphic-design-posters-graphic-art.jpg"
                    alt="Card image cap"/>
