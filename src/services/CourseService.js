@@ -1,5 +1,5 @@
 
-const url = 'https://wbdv-generic-server.herokuapp.com/api/001420072/users'
+const url = 'https://wbdv-generic-server.herokuapp.com/api/001420072/courses'
 
 export function createCourse(course) {
     return fetch(url, {

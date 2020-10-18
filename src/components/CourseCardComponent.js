@@ -10,7 +10,6 @@ class CourseCardComponent extends React.Component {
     state = {
         editing: false
     }
-//npm install -g npm@latest sudo
     render() {
         return (
         <div>
