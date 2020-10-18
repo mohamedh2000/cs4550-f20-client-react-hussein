@@ -22,6 +22,11 @@ class CourseManager extends React.Component {
 
     componentDidMount() {
         this.findAllCourses()
+        if (this.props.match.path == "/grid") {
+            this.setState({
+                grid:true
+            })
+        }
     }
 
     findAllCourses = () => {

@@ -5,7 +5,7 @@ import {connect} from 'react-redux'
 import {createStore, combineReducers} from "redux";
 import moduleReducer from '../reducers/modulesReducer.js'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlus}  from '@fortawesome/free-solid-svg-icons'
+import { faPlus, faTimes}  from '@fortawesome/free-solid-svg-icons'
 import ModuleListContainer from '../containers/ModuleContainer.js'
 import LessonsContainer from '../containers/LessonsContainer.js'
 import TopicPillContainer from "../containers/TopicsContainer"
@@ -68,12 +68,12 @@ class CourseEditorComponent extends React.Component {
     render() {
         return (
             <div>
-                <h1>CourseEditor: {this.state.course.title} ! </h1>
                 <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                    <Link to={`/`} className="navbar-brand" href="#">
+                    <span className="navbar-brand" href="#">
                         <i className=" wbdv-course-editor wbdv-close x-btn fas fa-times"></i>
-                        <strong className="wbdv-course-title">
-                        CS 4550- WebDev </strong></Link>
+                        <Link to={`/`} >  <FontAwesomeIcon icon={faTimes} /> </Link>
+                        <strong className="wbdv-course-title"> CS 4550 - WebDev Class:{this.state.course.title}</strong>
+                    </span>
                     <button className="navbar-toggler" type="button" data-toggle="collapse"
                         data-target="#navbarNav" aria-controls="navbarNav"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -87,9 +87,7 @@ class CourseEditorComponent extends React.Component {
                 <div className="container">
                         <div className="row">
                             <div className="col-sm-4">
-                                <ul className="wbdv-module-list list-group">
                                     <ModuleListContainer />
-                                </ul>
                             </div>
                             <div className="col-sm-8">
                                 <br />

@@ -31,6 +31,8 @@ ReactDOM.render(
             `/CourseEdit/:courseId/modules/:moduleId`,
             `/CourseEdit/:courseId/modules/:moduleId/lessons/:lessonId`]}
             component={CourseEditorComponent} />
+        <Route exact path="/table" component={CourseManager} />
+        <Route exact path="/grid" component={CourseManager} />
     </BrowserRouter>
   </Provider>
   </React.StrictMode>,

@@ -2,8 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom'
 
 const ModuleListComponent = ({course, modules = [], deleteFunction, createFunction, updateFunction, updateServerFunction}) =>
-    <div>
-        <ul>
+        <ul className="wbdv-module-list list-group">
         {
             modules.map(module =>
             <li>
@@ -30,10 +29,9 @@ const ModuleListComponent = ({course, modules = [], deleteFunction, createFuncti
             </li>
             )
         }
-        </ul>
         <button onClick={() => createFunction(course, {})}>
             Create Module
         </button>
-    </div>
+        </ul>
 
 export default ModuleListComponent;
