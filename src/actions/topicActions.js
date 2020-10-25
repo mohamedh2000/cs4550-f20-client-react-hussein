@@ -14,8 +14,6 @@ export const deleteTopic = (dispatch, topic) =>
 
 export const createTopic = (dispatch, lessonId, topic) =>
 {
-    console.log("LESSONID")
-    console.log(lessonId)
     topicService.createTopic(lessonId, topic).then(actualLesson => {
         dispatch({
             type: CREATE_TOPIC,

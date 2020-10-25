@@ -19,6 +19,7 @@ const rootReducer = combineReducers({
     lessonReducer,
     topicReducer
 })
+//start: //serve -s build
 
 const store = createStore(rootReducer)
 

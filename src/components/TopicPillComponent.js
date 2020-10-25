@@ -1,8 +1,10 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus} from '@fortawesome/free-solid-svg-icons'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Link } from 'react-router-dom'
 
-const TopicPillComponent = ({lessonId, topics = [], createFunction, deleteFunction,
+const TopicPillComponent = ({courseId, moduleId, lessonId, topics = [], createFunction, deleteFunction,
     updateFunction, updateTopicInServer}) =>
             <div className="nav nav-pills wbdv-topic-pill-list">
             {
@@ -20,7 +22,7 @@ const TopicPillComponent = ({lessonId, topics = [], createFunction, deleteFuncti
                             </div>
                             :
                             <div>
-                                {topic.title}
+                                <Link to={`/CourseEdit/${courseId}/modules/${moduleId}/lessons/${lessonId}/topics/{topic.id}`}> {topic.title} </Link>
                                 <button onClick={() => updateFunction({...topic, editing: true})}>
                                     Edit
                                 </button>

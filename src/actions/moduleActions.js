@@ -3,7 +3,7 @@ export const DELETE_MODULE = "DELETE_MODULE"
 export const CREATE_MODULE = "CREATE_MODULE"
 export const UPDATE_MODULE = "UPDATE_MODULE"
 export const FIND_MODULE = "FIND_MODULE"
-export const FIND_MODULE_FOR_COURSE = "SET_MODULES"
+export const FIND_MODULE_FOR_COURSE = "FIND_MODULES_FOR_COURSE"
 
 export const deleteModule = (dispatch, module) =>
     moduleService.deleteModuleForCourse(module._id).then(() => {

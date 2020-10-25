@@ -7,7 +7,9 @@ import {DELETE_TOPIC, UPDATE_TOPIC, CREATE_TOPIC,
 
 const stateToPropertyMapper = (state) => ({
     topics: state.topicReducer.topics,
-    lessonId: state.topicReducer.lessonId
+    lessonId: state.topicReducer.lessonId,
+    courseId: state.courseReducer.course._id,
+    moduleId: state.lessonReducer.moduleId
 })
 
 const propertyToDispatchMapper = (dispatch) => ({

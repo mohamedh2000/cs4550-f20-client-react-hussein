@@ -15,6 +15,7 @@ import {findCourseById} from '../services/CourseService.js'
 import {findLessonsForModule} from '../services/LessonService.js'
 import { findTopicsForLesson } from '../services/TopicService.js'
 import { Link } from 'react-router-dom'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 class CourseEditorComponent extends React.Component {
     state = {
@@ -123,7 +124,7 @@ const propertyToDispatchMapper = (dispatch) => ({
         })),
     findModulesForCourse: courseId => findModulesForCourse(courseId)
         .then(actualModules => dispatch({
-            type:"SET_MODULES",
+            type:"FIND_MODULES_FOR_COURSE",
             modules: actualModules
         })),
     findCourseById: courseId => findCourseById(courseId)

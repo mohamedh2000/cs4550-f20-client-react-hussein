@@ -2,6 +2,8 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus }  from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom'
+import Tabs from 'react-bootstrap/Tabs'
+import Tab from 'react-bootstrap/Tab'
 
 const LessonTabsComponent = ({module, course, lessons = [], createFunction, deleteFunction, updateFunction, updateLessonInServer}) =>
     <ul className="lesson navbar-nav wbdv-lesson-tabs" >
@@ -15,9 +17,9 @@ const LessonTabsComponent = ({module, course, lessons = [], createFunction, dele
                             <input onChange={(event) =>
                                 updateFunction({...lesson, title: event.target.value})}
                                 value={lesson.title}/>
-                                        <button onClick={() => updateLessonInServer({...lesson, editing:false})}>
-                                            Ok
-                                        </button>
+                                <button onClick={() => updateLessonInServer({...lesson, editing:false})}>
+                                    Ok
+                                </button>
                         </div>
                         :
                         <span>
