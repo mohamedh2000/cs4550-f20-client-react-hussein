@@ -56,7 +56,6 @@ class CourseManager extends React.Component {
 
     updateCourse = (course, updatedValue) => {
             let courses_ = this.state.courses
-            console.log(updatedValue)
             const id = course._id;
             course.title = updatedValue;
             courseService.updateCourse(id, course).then(data => {

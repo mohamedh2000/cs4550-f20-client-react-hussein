@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import CourseManager from './containers/CourseManager.js'
+import D from './components/test.js'
 import CourseEditorComponent from './components/CourseEditorComponent.js'
 import * as serviceWorker from './serviceWorker';
 import {BrowserRouter, Route} from 'react-router-dom'
@@ -11,13 +12,15 @@ import moduleReducer from "./reducers/modulesReducer.js"
 import courseReducer from "./reducers/courseReducer.js"
 import lessonReducer from "./reducers/lessonsReducer.js"
 import topicReducer from "./reducers/topicsReducer.js"
+import widgetsReducer from './reducers/widgetsReducer.js'
 import {Provider} from 'react-redux'
 
 const rootReducer = combineReducers({
     moduleReducer,
     courseReducer,
     lessonReducer,
-    topicReducer
+    topicReducer,
+    widgetsReducer
 })
 //start: //serve -s build
 
@@ -30,7 +33,9 @@ ReactDOM.render(
         <Route exact path="/" component={CourseManager} />
         <Route exact path={[`/CourseEdit/:courseId`,
             `/CourseEdit/:courseId/modules/:moduleId`,
-            `/CourseEdit/:courseId/modules/:moduleId/lessons/:lessonId`]}
+            `/CourseEdit/:courseId/modules/:moduleId/lessons/:lessonId`,
+            `/CourseEdit/:courseId/Modules/:moduleId/lessons/:lessonId/topics/:topicId`,
+            `/CourseEdit/:courseId/Modules/:moduleId/lessons/:lessonId/topics/:topicId/widgets/:widgetId`]}
             component={CourseEditorComponent} />
         <Route exact path="/table" component={CourseManager} />
         <Route exact path="/grid" component={CourseManager} />

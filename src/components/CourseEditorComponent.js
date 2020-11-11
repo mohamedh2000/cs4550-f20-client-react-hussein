@@ -1,5 +1,4 @@
 import React from 'react';
-import WidgetListComponent from "./WidgetListComponent"
 import {Provider} from 'react-redux'
 import {connect} from 'react-redux'
 import {createStore, combineReducers} from "redux";
@@ -8,12 +7,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus, faTimes}  from '@fortawesome/free-solid-svg-icons'
 import ModuleListContainer from '../containers/ModuleContainer.js'
 import LessonsContainer from '../containers/LessonsContainer.js'
+import WidgetsContainer from '../containers/WidgetsContainer.js'
 import TopicPillContainer from "../containers/TopicsContainer"
 import courseReducer from "../reducers/courseReducer.js"
 import {findModulesForCourse} from '../services/ModuleService.js'
 import {findCourseById} from '../services/CourseService.js'
 import {findLessonsForModule} from '../services/LessonService.js'
 import { findTopicsForLesson } from '../services/TopicService.js'
+import {findWidgetsForTopic} from '../services/WidgetService.js'
 import { Link } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -27,11 +28,15 @@ class CourseEditorComponent extends React.Component {
         const courseId = this.props.match.params.courseId
         const moduleId = this.props.match.params.moduleId
         const lessonId = this.props.match.params.lessonId
+        const topicId = this.props.match.params.topicId
         if(moduleId) {
             this.props.findLessonsForModule(moduleId)
         }
         if (lessonId) {
             this.props.findTopicsForLesson(lessonId)
+        }
+        if (topicId) {
+            this.props.findWidgetsForTopic(topicId)
         }
         this.setState({
             courseId: this.props.match.params.courseId
@@ -47,8 +52,10 @@ class CourseEditorComponent extends React.Component {
     componentDidUpdate(prevProps, prevState, snapshot) {
         const moduleId = this.props.match.params.moduleId
         const lessonId = this.props.match.params.lessonId
+        const topicId = this.props.match.params.topicId
         const prevModuleId = prevProps.match.params.moduleId
         const prevLessonId = prevProps.match.params.lessonId
+        const prevTopicId = prevProps.match.params.topicId
         if (moduleId != prevModuleId) {
             this.props.findLessonsForModule(moduleId).then(lessonss => {
                 this.setState({
@@ -64,6 +71,14 @@ class CourseEditorComponent extends React.Component {
                 })
             })
         }
+        if (topicId != prevTopicId) {
+            this.props.findWidgetsForTopic(topicId).then(widgetss => {
+                this.setState({
+                    widgets: widgetss.widgets
+                })
+            })
+        }
+
     }
 
     render() {
@@ -96,10 +111,8 @@ class CourseEditorComponent extends React.Component {
                                     <TopicPillContainer />
                                 </ul>
                                 <br/>
-                                <WidgetListComponent />
-                                <button className="plus-btn btn btn-danger wbdv-lesson-add-btn">
-                                    <FontAwesomeIcon icon={faPlus} />
-                                </button>
+                                <WidgetsContainer />
+
                             </div>
                         </div>
                 </div>
@@ -110,6 +123,12 @@ class CourseEditorComponent extends React.Component {
 
 const stateToPropertyMapper = (state) => ({})
 const propertyToDispatchMapper = (dispatch) => ({
+    findWidgetsForTopic: topicId => findWidgetsForTopic(topicId)
+        .then(widgets => dispatch({
+            type: "FIND_WIDGETS_FOR_TOPIC",
+            widgets,
+            topicId
+        })),
     findTopicsForLesson: lessonId => findTopicsForLesson(lessonId)
         .then(topics => dispatch({
             type: "FIND_TOPICS_FOR_LESSON",

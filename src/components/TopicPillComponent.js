@@ -10,6 +10,8 @@ const TopicPillComponent = ({courseId, moduleId, lessonId, topics = [], createFu
             {
                 topics.map((topic) =>
                     <li className="btn nav-item wbdv-topic-pill">
+                    {console.log("TOPIC")}
+                    {console.log(topic)}
                         {
                             (topic.editing ?
                             <div>
@@ -22,7 +24,7 @@ const TopicPillComponent = ({courseId, moduleId, lessonId, topics = [], createFu
                             </div>
                             :
                             <div>
-                                <Link to={`/CourseEdit/${courseId}/modules/${moduleId}/lessons/${lessonId}/topics/{topic.id}`}> {topic.title} </Link>
+                                <Link to={`/CourseEdit/${courseId}/modules/${moduleId}/lessons/${lessonId}/topics/${topic._id}`}> {topic.title} </Link>
                                 <button onClick={() => updateFunction({...topic, editing: true})}>
                                     Edit
                                 </button>
